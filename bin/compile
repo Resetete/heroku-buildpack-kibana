@@ -13,10 +13,10 @@ INIT_SCRIPT="$BUILD_DIR/.profile.d/kibana.sh"
 if [ -f "$ENV_DIR/ELASTICSEARCH.URL" ]; then
   ELASTICSEARCH.URL=$(cat $ENV_DIR/ELASTICSEARCH.URL)
 else
-  ELASTICSEARCH.URL="https://yz5mhm709d:c3pfp0nzyc@nexus-tools-platform-8624061985.eu-west-1.bonsaisearch.net"
+  ELASTICSEARCH.URL="http://localhost:9200"
 fi
 
-if [ -f "$ENV_DIR/DOWNLOAD.URL" ]; then
+if [ -f "$ENV_DIR/DOWNLOAD_URL" ]; then
   DOWNLOAD_URL=$(cat $ENV_DIR/DOWNLOAD_URL)
 else
   DOWNLOAD_URL="https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz"
