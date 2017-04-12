@@ -11,9 +11,9 @@ ENV_DIR=$3
 INIT_SCRIPT="$BUILD_DIR/.profile.d/kibana.sh"
 
 if [ -f "$ENV_DIR/ELASTICSEARCH.URL" ]; then
-  ELASTICSEARCH_URL=$(cat $ENV_DIR/ELASTICSEARCH.URL)
+  ELASTICSEARCH.URL=$(cat $ENV_DIR/ELASTICSEARCH.URL)
 else
-  ELASTICSEARCH_URL="http://localhost:9200"
+  ELASTICSEARCH.URL="http://localhost:9200"
 fi
 
 if [ -f "$ENV_DIR/DOWNLOAD.URL" ]; then
