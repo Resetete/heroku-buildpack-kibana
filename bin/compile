@@ -10,10 +10,10 @@ ENV_DIR=$3
 
 INIT_SCRIPT="$BUILD_DIR/.profile.d/kibana.sh"
 
-if [ -f "$ENV_DIR/ELASTICSEARCH_URL" ]; then
-  ELASTICSEARCH_URL=$(cat $ENV_DIR/ELASTICSEARCH_URL)
+if [ -f "$ENV_DIR/ELASTICSEARCH.URL" ]; then
+  ELASTICSEARCH.URL=$(cat $ENV_DIR/ELASTICSEARCH.URL)
 else
-  ELASTICSEARCH_URL="http://localhost:9200"
+  ELASTICSEARCH.URL="http://localhost:9200"
 fi
 
 if [ -f "$ENV_DIR/DOWNLOAD_URL" ]; then
@@ -39,7 +39,8 @@ mkdir="mkdir -p"
 download="curl -sLO"
 extract="$tar -C $BUILD_DIR --wildcards -f"
 verify="sha1sum --check --warn"
-configure='sed -i /\#/d s/^\(elasticsearch_url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
+configure='sed "s/# elasticsearch.url/elasticsearch.url/i" '
+configure='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH.URL | sed 's/\//\\\//g')'"/'
 
 
 echo "-----> Installing kibana..."
@@ -64,7 +65,7 @@ fi
 
 $extract $CACHE_DIR/$KIBANA_PACKAGE
 
-echo "-----> Configuring ELASTICSEARCH_URL"
+echo "-----> Configuring ELASTICSEARCH.URL"
 $configure $KIBANA_DIR/config/kibana.yml
 
 echo "Exporting PATH" | indent
