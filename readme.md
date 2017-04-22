@@ -6,7 +6,8 @@ This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) th
 Compatibility
 -------------
 
-Tested against kibana 4.1.0.
+Tested against kibana 4.4.0.
+works with Elasticsearch 2.4
 
 Usage
 -----
