@@ -39,7 +39,7 @@ mkdir="mkdir -p"
 download="curl -sLO"
 extract="$tar -C $BUILD_DIR --wildcards -f"
 verify="sha1sum --check --warn"
-configure1='sed s/#\x20elasticsearch.url/elasticsearch.url/'
+configure1='sed -i s/#\x20elasticsearch.url/elasticsearch.url/'
 configure2='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
 
 
