@@ -16,18 +16,20 @@ else
   ELASTICSEARCH_URL="https://localhost:9200"
 fi
 
-if [ -f "$ENV_DIR/DOWNLOAD_URL" ]; then
-  DOWNLOAD_URL=$(cat $ENV_DIR/DOWNLOAD_URL)
-else
-  DOWNLOAD_URL="https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz"
-fi
-
 if [ -f "$ENV_DIR/ADMIN_BUTTONS_VISIBILITY" ]; then
   ADMIN_BUTTONS_VISIBILITY=$(cat $ENV_DIR/ADMIN_BUTTONS_VISIBILITY)
   echo $ADMIN_BUTTONS_VISIBILITY
 else
   echo "-----> No changes on visibility admin buttons...."
 fi
+
+if [ -f "$ENV_DIR/DOWNLOAD_URL" ]; then
+  DOWNLOAD_URL=$(cat $ENV_DIR/DOWNLOAD_URL)
+else
+  DOWNLOAD_URL="https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz"
+fi
+
+
 
 KIBANA_PACKAGE=${DOWNLOAD_URL##*/}
 
