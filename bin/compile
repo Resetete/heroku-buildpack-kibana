@@ -73,7 +73,7 @@ CSS_COMMONS_DOWNLOADED_FILE=$($download $COMMONS_CSS_URL)
 echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
-echo "-----> Configuring Admin Button visibility"
+echo "-----> Configuring Admin Button visibility $CSS_COMMONS_DOWNLOADED_FILE"
 cp $KIBANA_DIR/optimize/bundles/commons.style.css $CSS_COMMONS_DOWNLOADED_FILE
 
 echo "Exporting PATH" | indent
