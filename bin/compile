@@ -44,7 +44,7 @@ configure1='sed -i s/#\x20elasticsearch.url/elasticsearch.url/'
 configure2='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
 
 
-echo "-----> Installing kibana..."
+echo "-----> Installing kibana TEST TEST..."
 
 $mkdir ${INIT_SCRIPT%/*}
 $mkdir $CACHE_DIR
