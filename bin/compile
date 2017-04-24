@@ -74,7 +74,7 @@ echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
 echo "-----> Configuring Admin Button visibility $CSS_COMMONS_DOWNLOADED_FILE"
-cp $KIBANA_DIR/optimize/bundles/commons.style.css $CSS_COMMONS_DOWNLOADED_FILE
+cp $CSS_COMMONS_DOWNLOADED_FILE $KIBANA_DIR/optimize/bundles/commons.style.css 
 
 echo "Exporting PATH" | indent
 echo 'export PATH="$PATH:'${KIBANA_DIR##*/}'/bin"' > $INIT_SCRIPT
