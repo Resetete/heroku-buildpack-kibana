@@ -22,6 +22,12 @@ else
   DOWNLOAD_URL="https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz"
 fi
 
+if [ -f "$ENV_DIR/navbar-static_visibility" ]; then
+  navbar-static_visibility=$(cat $ENV_DIR/navbar-static_visibility)
+else
+  echo "-----> No changes on visibility admin buttons...."
+fi
+
 KIBANA_PACKAGE=${DOWNLOAD_URL##*/}
 
 case ${KIBANA_PACKAGE} in
@@ -41,6 +47,7 @@ extract="$tar -C $BUILD_DIR --wildcards -f"
 verify="sha1sum --check --warn"
 configure1='sed -i s/#\x20elasticsearch.url/elasticsearch.url/'
 configure2='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
+configure3='sed -i s/navbar\x20button\x20{\npadding:\x205px\x2015px;/$navbar-static_visibility/'
 
 
 echo "-----> Installing kibana..."
@@ -68,6 +75,8 @@ $extract $CACHE_DIR/$KIBANA_PACKAGE
 echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
+echo "-----> Configuring Admin Button visibility"
+$configure3 $KIBANA_DIR/optimize/bundles/commons.style.css
 
 echo "Exporting PATH" | indent
 echo 'export PATH="$PATH:'${KIBANA_DIR##*/}'/bin"' > $INIT_SCRIPT
