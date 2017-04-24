@@ -68,8 +68,8 @@ fi
 $extract $CACHE_DIR/$KIBANA_PACKAGE
 
 echo "downloading new Commons.css file $COMMONS_CSS_URL"
-CSS_COMMONS_DOWNLOADED_FILE=$(wget -O /$KIBANA_DIR/optimize/bundles $COMMONS_CSS_URL)
-echo $CSS_COMMONS_DOWNLOADED_FILE
+CSS_COMMONS_DOWNLOADED_FILE=$(wget -O /$KIBANA_DIR/optimize/bundles/commons.style.css $COMMONS_CSS_URL)
+
 
 echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
