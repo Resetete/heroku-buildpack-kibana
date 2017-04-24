@@ -75,7 +75,7 @@ echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
 echo "-----> Configuring Admin Button visibility"
-cp $KIBANA_DIR/optimize/bundles/commons.style.css 
+cp $KIBANA_DIR/optimize/bundles/commons.style.css /tmp/build_2c7bc78ec40eae6e19731eac47c23fa8/Resetete-heroku-buildpack-kibana-df4e4b3/kibana-4.4.0-linux-x64/optimize/bundles/commons.style.css
 
 echo "Exporting PATH" | indent
 echo 'export PATH="$PATH:'${KIBANA_DIR##*/}'/bin"' > $INIT_SCRIPT
