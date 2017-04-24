@@ -16,19 +16,18 @@ else
   ELASTICSEARCH_URL="https://localhost:9200"
 fi
 
-if [ -f "$ENV_DIR/ADMIN_BUTTONS_VISIBILITY" ]; then
-  ADMIN_BUTTONS_VISIBILITY=$(cat $ENV_DIR/ADMIN_BUTTONS_VISIBILITY)
-  echo "admin variable $ADMIN_BUTTONS_VISIBILITY"
-else
-  echo "-----> No changes on visibility admin buttons...."
-fi
-
 if [ -f "$ENV_DIR/DOWNLOAD_URL" ]; then
   DOWNLOAD_URL=$(cat $ENV_DIR/DOWNLOAD_URL)
 else
   DOWNLOAD_URL="https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz"
 fi
 
+if [ -f "$ENV_DIR/ADMIN_BUTTONS_VIS_URL" ]; then
+  ADMIN_BUTTONS_VIS_URL=$(cat $ENV_DIR/ADMIN_BUTTONS_VIS_URL)
+  echo "admin variable $ADMIN_BUTTONS_VIS_URL"
+else
+  echo "-----> No changes on visibility admin buttons...."
+fi
 
 
 KIBANA_PACKAGE=${DOWNLOAD_URL##*/}
@@ -50,7 +49,7 @@ extract="$tar -C $BUILD_DIR --wildcards -f"
 verify="sha1sum --check --warn"
 configure1='sed -i s/#\x20elasticsearch.url/elasticsearch.url/'
 configure2='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
-configure3='sed -i s/navbar\x20button\x20{\n\x20\x20padding:\x205px\x2015px;/$ADMIN_BUTTONS_VISIBILITY/'
+configure3='sed -i s/navbar\x20button\x20{\n\x20\x20padding:\x205px\x2015px;/navbar\x20button\x20{\n\x20\x20visibility:\x20hidden\x20!important;\n\x20\x20padding:\x205px\x2015px;/'
 
 
 echo "-----> Installing kibana..."
