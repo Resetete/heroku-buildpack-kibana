@@ -18,7 +18,7 @@ fi
 
 if [ -f "$ENV_DIR/ADMIN_BUTTONS_VISIBILITY" ]; then
   ADMIN_BUTTONS_VISIBILITY=$(cat $ENV_DIR/ADMIN_BUTTONS_VISIBILITY)
-  echo $ADMIN_BUTTONS_VISIBILITY
+  echo "admin variable $ADMIN_BUTTONS_VISIBILITY"
 else
   echo "-----> No changes on visibility admin buttons...."
 fi
@@ -75,11 +75,12 @@ fi
 
 $extract $CACHE_DIR/$KIBANA_PACKAGE
 
+echo "-----> Configuring Admin Button visibility"
+$configure3 $KIBANA_DIR/optimize/bundles/commons.style.css
 echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
-echo "-----> Configuring Admin Button visibility"
-$configure3 $KIBANA_DIR/optimize/bundles/commons.style.css
+
 
 echo "Exporting PATH" | indent
 echo 'export PATH="$PATH:'${KIBANA_DIR##*/}'/bin"' > $INIT_SCRIPT
