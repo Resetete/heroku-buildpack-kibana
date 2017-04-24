@@ -67,11 +67,15 @@ fi
 
 $extract $CACHE_DIR/$KIBANA_PACKAGE
 
+echo "downloading new Commons.css file $COMMONS_CSS_URL"
+$download $COMMONS_CSS_URL
+
+
 echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
 echo "-----> Configuring Admin Button visibility"
-cp $KIBANA_DIR/optimize/bundles/commons.style.css $download $COMMONS_CSS_URL
+cp $KIBANA_DIR/optimize/bundles/commons.style.css 
 
 echo "Exporting PATH" | indent
 echo 'export PATH="$PATH:'${KIBANA_DIR##*/}'/bin"' > $INIT_SCRIPT
