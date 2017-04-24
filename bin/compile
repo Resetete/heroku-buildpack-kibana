@@ -24,6 +24,7 @@ fi
 
 if [ -f "$ENV_DIR/navbar-static_visibility" ]; then
   navbar-static_visibility=$(cat $ENV_DIR/navbar-static_visibility)
+  echo $navbar-static_visibility
 else
   echo "-----> No changes on visibility admin buttons...."
 fi
