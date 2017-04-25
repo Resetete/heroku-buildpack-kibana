@@ -23,7 +23,7 @@ else
 fi
 
 COMMONS_CSS_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/commons.style.css"
-KIBANA_STYLE_CSS_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/commons.style.css"
+KIBANA_STYLE_CSS_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/kibana.style.css"
 ERROR_MESSAGE_PAGE_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/fatal_splash_screen.html"
 
 KIBANA_PACKAGE=${DOWNLOAD_URL##*/}
@@ -69,10 +69,13 @@ fi
 
 $extract $CACHE_DIR/$KIBANA_PACKAGE
 
-echo "---> Downloading new Commons.css file $COMMONS_CSS_URL"
+echo "---> Downloading new commons.style.css file $COMMONS_CSS_URL"
 wget -O /$KIBANA_DIR/optimize/bundles/commons.style.css $COMMONS_CSS_URL
 
-echo "---> Downloading new Error Message Page html file $ERROR_MESSAGE_PAGE_URL"
+echo "---> Downloading new kibana.style.css file $KIBANA_STYLE_CSS_URL"
+wget -O /$KIBANA_DIR/optimize/bundles/kibana.style.css $KIBANA_STYLE_CSS_URL
+
+echo "---> Downloading new Error Message Page html (fatal_splash_screen.html) file $ERROR_MESSAGE_PAGE_URL"
 wget -O /$KIBANA_DIR/src/ui/public/notify/partials/fatal_splash_screen.html $ERROR_MESSAGE_PAGE_URL
 
 
