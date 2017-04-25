@@ -68,8 +68,8 @@ fi
 
 $extract $CACHE_DIR/$KIBANA_PACKAGE
 
-echo "---> Downloading new Commons.css file $COMMONS_CSS_URL"
-wget -O /$KIBANA_DIR/optimize/bundles/commons.style.css $COMMONS_CSS_URL
+##echo "---> Downloading new Commons.css file $COMMONS_CSS_URL"
+##wget -O /$KIBANA_DIR/optimize/bundles/commons.style.css $COMMONS_CSS_URL
 
 echo "---> Downloading new Error Message Page html file $CERROR_MESSAGE_PAGE_URL"
 wget -O /$KIBANA_DIR/src/ui/public/notify/partials/fatal_splash_screen.html $ERROR_MESSAGE_PAGE_URL
