@@ -1,5 +1,5 @@
-Heroku buildpack: Kibana
-========================
+Heroku buildpack: Kibana - adjusted for using it as in Production UI webpage
+================================================================================
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) that serves up [kibana](https://www.elastic.co/downloads/kibana).
 
