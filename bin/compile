@@ -23,6 +23,7 @@ else
 fi
 
 COMMONS_CSS_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/commons.style.css"
+KIBANA_STYLE_CSS_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/commons.style.css"
 ERROR_MESSAGE_PAGE_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/fatal_splash_screen.html"
 
 KIBANA_PACKAGE=${DOWNLOAD_URL##*/}
@@ -44,7 +45,7 @@ extract="$tar -C $BUILD_DIR --wildcards -f"
 verify="sha1sum --check --warn"
 configure1='sed -i s/#\x20elasticsearch.url/elasticsearch.url/'
 configure2='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
-configure3='sed -i s/#\x20kibana.defaultAppId:\x20"discover"/kibana.defaultAppId:\x20"dashboard"/'
+configure3='sed -i s/#\x20kibana.defaultAppId:\x20"discover"/kibana.defaultAppId:\x20"dashboard/Dashboard-For-Website"/'
 
 echo "-----> Installing kibana ..."
 
