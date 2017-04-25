@@ -78,6 +78,7 @@ wget -O /$KIBANA_DIR/src/ui/public/notify/partials/fatal_splash_screen.html $ERR
 echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
+echo "-----> Configuring initial application"
 $configure3 $KIBANA_DIR/config/kibana.yml
 
 echo "Exporting PATH" | indent
