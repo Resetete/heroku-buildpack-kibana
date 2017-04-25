@@ -44,7 +44,7 @@ extract="$tar -C $BUILD_DIR --wildcards -f"
 verify="sha1sum --check --warn"
 configure1='sed -i s/#\x20elasticsearch.url/elasticsearch.url/'
 configure2='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
-
+configure3='sed -i s/#\x20kibana.defaultAppId:\x20"discover"/#\x20kibana.defaultAppId:\x20"dashboard"/'
 
 echo "-----> Installing kibana ..."
 
@@ -78,6 +78,7 @@ wget -O /$KIBANA_DIR/src/ui/public/notify/partials/fatal_splash_screen.html $ERR
 echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
+$configure3 $KIBANA_DIR/config/kibana.yml
 
 echo "Exporting PATH" | indent
 echo 'export PATH="$PATH:'${KIBANA_DIR##*/}'/bin"' > $INIT_SCRIPT
