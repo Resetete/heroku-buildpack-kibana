@@ -45,7 +45,7 @@ extract="$tar -C $BUILD_DIR --wildcards -f"
 verify="sha1sum --check --warn"
 configure1='sed -i s/#\x20elasticsearch.url/elasticsearch.url/'
 configure2='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
-configure3='sed -i s/#\x20kibana.defaultAppId:\x20"discover"/kibana.defaultAppId:\x20"dashboard/Dashboard-For-Website"/'
+configure3='sed -i s/#\x20kibana.defaultAppId:\x20"discover"/kibana.defaultAppId:\x20"dashboard\/Dashboard-For-Website"/'
 
 echo "-----> Installing kibana ..."
 
@@ -75,7 +75,7 @@ wget -O /$KIBANA_DIR/optimize/bundles/commons.style.css $COMMONS_CSS_URL
 echo "---> Downloading new kibana.style.css file $KIBANA_STYLE_CSS_URL"
 wget -O /$KIBANA_DIR/optimize/bundles/kibana.style.css $KIBANA_STYLE_CSS_URL
 
-echo "---> Downloading new Error Message Page html (fatal_splash_screen.html) file $ERROR_MESSAGE_PAGE_URL"
+echo "---> Downloading new Error Message Page html fatal_splash_screen.html file $ERROR_MESSAGE_PAGE_URL"
 wget -O /$KIBANA_DIR/src/ui/public/notify/partials/fatal_splash_screen.html $ERROR_MESSAGE_PAGE_URL
 
 
