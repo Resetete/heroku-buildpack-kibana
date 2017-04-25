@@ -22,7 +22,7 @@ else
   DOWNLOAD_URL="https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz"
 fi
 
-COMMONS_CSS_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/commons.style.css"
+#COMMONS_CSS_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/commons.style.css"
 ERROR_MESSAGE_PAGE_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/fatal_splash_screen.html"
 
 KIBANA_PACKAGE=${DOWNLOAD_URL##*/}
@@ -71,7 +71,7 @@ $extract $CACHE_DIR/$KIBANA_PACKAGE
 ##echo "---> Downloading new Commons.css file $COMMONS_CSS_URL"
 ##wget -O /$KIBANA_DIR/optimize/bundles/commons.style.css $COMMONS_CSS_URL
 
-echo "---> Downloading new Error Message Page html file $CERROR_MESSAGE_PAGE_URL"
+echo "---> Downloading new Error Message Page html file $ERROR_MESSAGE_PAGE_URL"
 wget -O /$KIBANA_DIR/src/ui/public/notify/partials/fatal_splash_screen.html $ERROR_MESSAGE_PAGE_URL
 
 
