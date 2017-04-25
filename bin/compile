@@ -22,7 +22,7 @@ else
   DOWNLOAD_URL="https://download.elastic.co/kibana/kibana/kibana-4.4.0-linux-x64.tar.gz"
 fi
 
-COMMONS_CSS_URL="https://github.com/Resetete/heroku-buildpack-kibana/blob/no_admin_buttons/bin/commons.style.css"
+COMMONS_CSS_URL="https://raw.githubusercontent.com/Resetete/heroku-buildpack-kibana/no_admin_buttons/bin/commons.style.css"
 
 KIBANA_PACKAGE=${DOWNLOAD_URL##*/}
 
