@@ -42,9 +42,10 @@ extract="$tar -C $BUILD_DIR --wildcards -f"
 verify="sha1sum --check --warn"
 configure1='sed -i s/#\x20elasticsearch.url/elasticsearch.url/'
 configure2='sed -i s/^\(elasticsearch.url:\x20\).\{1,\}/\1"'$(echo $ELASTICSEARCH_URL | sed 's/\//\\\//g')'"/'
+configure3='sed -i s/#\x20kibana.defaultAppId:\x20"discover"/kibana.defaultAppId:\x20"dashboard/NTPlatform"/'
 
 
-echo "-----> Installing kibana TEST TEST..."
+echo "-----> Installing kibana ..."
 
 $mkdir ${INIT_SCRIPT%/*}
 $mkdir $CACHE_DIR
@@ -70,6 +71,7 @@ $extract $CACHE_DIR/$KIBANA_PACKAGE
 echo "-----> Configuring ELASTICSEARCH_URL"
 $configure1 $KIBANA_DIR/config/kibana.yml
 $configure2 $KIBANA_DIR/config/kibana.yml
+$configure3 $KIBANA_DIR/config/kibana.yml
 echo "-----> Configuring Admin Button visibility"
 cp $KIBANA_DIR/optimize/bundles/commons.style.css https://github.com/Resetete/heroku-buildpack-kibana/blob/no_admin_buttons/bin/commons.style.css
 
