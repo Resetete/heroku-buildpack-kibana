@@ -3,6 +3,10 @@ Heroku buildpack: Kibana - adjusted for using it as in Production UI webpage
 
 This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) that serves up [kibana](https://www.elastic.co/downloads/kibana).
 
+Purpose
+-------------
+the ADMIN_BUTTONS_VIS_URL variable allows turning off all other tabs of Kibana and only allows access to the Dashboard tab. Also disables saving or modifiying of graphics.   
+
 Compatibility
 -------------
 
