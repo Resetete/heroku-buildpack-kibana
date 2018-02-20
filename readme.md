@@ -10,7 +10,7 @@ the ADMIN_BUTTONS_VIS_URL variable allows turning off all other tabs of Kibana a
 Compatibility
 -------------
 
-Tested against kibana 4.4.0.
+Tested against kibana 4.1.0.
 works with Elasticsearch 2.4
 
 Usage
