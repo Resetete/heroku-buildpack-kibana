@@ -23,7 +23,7 @@ Usage
 
     $ heroku config:set ELASTICSEARCH_URL="https://user:pass@elastic.cluster.com:9200"
     $ heroku config:set DOWNLOAD_URL="https://download.elastic.co/kibana/kibana/kibana-4.1.0-linux-x64.tar.gz"
-
+    $ heroku config:set ADMIN_BUTTONS_VIS_URL="navbar\x20button\x20{\n\x20\x20visibility:\x20hidden\x20!important;\n\x20\x20padding:\x205px\x2015px;"
     $ cat Procfile
     web: kibana --port $PORT
 
